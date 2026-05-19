@@ -485,11 +485,15 @@
     </div>
     <div class="header-right">
       <div id="load-section">
-        <button class="file-btn" onclick="document.getElementById('file-input').click()">
-          ▲ Load Database
+        <button class="file-btn" onclick="fetchFromGitHub()">
+          ↻ Refresh
+        </button>
+        <button class="file-btn" style="background:var(--surface);color:var(--accent);border:1px solid var(--accent);margin-top:6px" onclick="document.getElementById('file-input').click()">
+          ▲ Load Local File
         </button>
         <input type="file" id="file-input" accept=".db" onchange="loadDatabase(this)">
-        <div class="status-pill" id="db-status">No database loaded</div>
+        <div class="status-pill" id="db-status">Loading...</div>
+        <div class="status-pill" id="db-updated" style="margin-top:2px"></div>
       </div>
     </div>
   </header>
@@ -497,10 +501,9 @@
   <!-- Empty state -->
   <div id="empty-state">
     <div class="big">SIGNAL</div>
-    <p>Load your podcast_analyzer.db file to begin</p>
-    <p style="font-size:11px; margin-top:4px;">Click "Load Database" above → navigate to your Podcast analyzer folder</p>
+    <p id="empty-msg">Fetching latest data...</p>
+    <p style="font-size:11px; margin-top:4px; color:var(--dim)" id="empty-sub"></p>
   </div>
-
   <!-- Dashboard -->
   <div id="dashboard">
 
@@ -575,11 +578,64 @@ let db  = null;
 let sentimentChart = null;
 let activeTickerFilter = 'ALL';
 
-// ── Init sql.js ──────────────────────────────────────────────────────────────
-initSqlJs({ locateFile: f => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${f}` })
-  .then(s => { SQL = s; });
+// ── GitHub config ─────────────────────────────────────────────────────────────
+const GITHUB_USER = 'aoste67';
+const GITHUB_REPO = 'podcast-dashboard';
+const DB_FILE     = 'podcast_analyzer.db';
+const META_FILE   = 'meta.json';
+const RAW_BASE    = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main`;
 
-// ── Load database file ───────────────────────────────────────────────────────
+// ── Init sql.js + auto-fetch on load ─────────────────────────────────────────
+initSqlJs({ locateFile: f => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${f}` })
+  .then(s => { SQL = s; fetchFromGitHub(); });
+
+// ── Auto-fetch database from GitHub ──────────────────────────────────────────
+async function fetchFromGitHub() {
+  document.getElementById('db-status').textContent = 'Fetching...';
+  document.getElementById('db-status').className = 'status-pill';
+  document.getElementById('empty-msg').textContent = 'Fetching latest data from GitHub...';
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('empty-state').style.display = 'flex';
+
+  try {
+    // Fetch metadata first to show last-updated time
+    try {
+      const metaRes = await fetch(`${RAW_BASE}/${META_FILE}?t=${Date.now()}`);
+      if (metaRes.ok) {
+        const meta = await metaRes.json();
+        if (meta.last_updated) {
+          const d = new Date(meta.last_updated);
+          document.getElementById('db-updated').textContent =
+            `Updated ${d.toLocaleDateString()} ${d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}`;
+        }
+      }
+    } catch(_) {}
+
+    // Fetch the database binary
+    const res = await fetch(`${RAW_BASE}/${DB_FILE}?t=${Date.now()}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status} — database not found in repo`);
+
+    const buf = await res.arrayBuffer();
+    const arr = new Uint8Array(buf);
+    db = new SQL.Database(arr);
+
+    document.getElementById('db-status').textContent = '✓ Live from GitHub';
+    document.getElementById('db-status').className = 'status-pill loaded';
+    document.getElementById('empty-state').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    renderAll();
+
+  } catch(err) {
+    document.getElementById('db-status').textContent = '⚠ Could not load';
+    document.getElementById('db-status').className = 'status-pill';
+    document.getElementById('empty-msg').textContent = 'Could not fetch database';
+    document.getElementById('empty-sub').textContent =
+      err.message + ' — use Load Local File to load manually';
+    console.error('GitHub fetch failed:', err);
+  }
+}
+
+// ── Load local database file (fallback) ──────────────────────────────────────
 function loadDatabase(input) {
   if (!input.files[0]) return;
   const reader = new FileReader();
