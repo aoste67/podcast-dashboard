@@ -1,0 +1,95 @@
+# Mad Money
+## Mad Money w/ Jim Cramer 5/18/26
+**Date:** 2026-05-18  |  **Sentiment:** 🟢 Bullish (+2/5)
+
+---
+
+## Market Outlook
+The market is currently characterized by "whippy" behavior and low conviction, driven largely by ETF-led rotations between AI hardware and software. Cramer warns that upcoming mega IPOs (SpaceX, OpenAI) may create a significant liquidity drain, pulling capital away from existing equities.
+
+## Key Stocks Discussed
+*   **MU (Bullish):** Compelling valuation under 12x earnings; buy on the current price dip.
+*   **INTC (Very Bullish):** Strong turnaround thesis driven by CEO Lip-Bu Tan and a strategic focus on US domestic manufacturing.
+*   **DVN (Very Bullish):** "Plain and simple buy" based on strong natural gas positioning.
+*   **TSM (Bullish):** Indispensable choke point in advanced semiconductor manufacturing; expected to trend higher.
+*   **T (Bearish):** High debt levels and competitive threats from LEO satellites (Starlink, Amazon).
+*   **WDC (Bearish):** Valuation too rich at 46x earnings compared to peers like MU.
+*   **STM (Bearish):** Overvalued at 51x earnings.
+*   **NOW (Bullish):** Positive momentum following a Bank of America upgrade.
+*   **CRM (Neutral/Bearish):** Uncertain if the stock has bottomed; BofA initiated coverage with a "sell" rating.
+*   **USAC (Bullish):** Positive outlook based on natural gas royalties.
+
+## Macro & Sector Themes
+*   **AI Hardware vs. Software:** Rotation is frequent, but hardware generally maintains stronger momentum than software.
+*   **Mega IPO Liquidity Drain:** The entry of SpaceX and OpenAI into public markets is expected to disrupt current equity allocations.
+*   **NASDAQ 100 Rule Changes:** New float/weighting rules may fast-track SpaceX's inclusion in the index, potentially triggering massive forced buying by passive funds.
+*   **Energy Sector:** Strong bullishness on natural gas assets and royalties.
+
+## Actionable Takeaways
+*   **Execution Strategy:** Avoid "bottom fishing" damaged stocks; instead, buy high-quality winners during momentary slides.
+*   **Semiconductor Valuation:** Favor MU (<12x earnings) over WDC (46x) or STM (51x).
+*   **Event Monitoring:** Watch for the SpaceX IPO (est. June 12); anticipate forced index buying around June 22, which may create volatility in other NASDAQ 100 components.
+*   **Sector Pivot:** Focus on AI hardware and natural gas producers/royalty owners.
+
+---
+
+## Stocks Mentioned
+
+| Symbol | Name | Sentiment | Context |
+|--------|------|-----------|---------|
+| **MU** | Micron Technology | 🟢 bullish | Compelling valuation under 12x earnings during a price dip. |
+| **INTC** | Intel Corp | 🟢 very bullish | Significant turnaround under CEO Lip-Bu Tan and focus on US domestic manufacturing. |
+| **DVN** | Devon Energy | 🟢 very bullish | Strong position in natural gas makes it a plain and simple buy. |
+| **TSM** | Taiwan Semiconductor Manufacturing Co. | 🟢 bullish | Indispensable choke point in advanced semiconductor manufacturing likely to go higher. |
+| **T** | AT&T Inc. | 🔴 bearish | Concerns over high debt and competition from Starlink and Amazon's Leo satellites. |
+| **WDC** | Western Digital | 🔴 bearish | Valuation at 46 times earnings is considered too rich. |
+| **STM** | STMicroelectronics | 🔴 bearish | Too expensive at 51 times earnings. |
+| **NOW** | ServiceNow | 🟢 bullish | Recent price jump following a buy recommendation from Bank of America. |
+| **CRM** | Salesforce | ⚪ neutral | Uncertain if the stock has bottomed despite recent rallies. |
+| **USAC** | USA Gas | 🟢 bullish | Positive outlook based on natural gas royalties. |
+
+## Ratings Changes
+
+- **NOW**: Bank of America UPGRADE → Buy
+- **CRM**: Bank of America INITIATION → Sell
+
+## Bull & Bear Cases
+
+### DVN
+🟢 **Bull:** Strong natural gas assets provide a compelling entry point.
+
+### INTC
+🟢 **Bull:** Turnaround driven by cultural change, balance sheet repair, and strategic US government support.
+
+### MU
+🟢 **Bull:** Attractive valuation relative to other memory stocks during a momentary slide.
+
+### T
+🔴 **Bear:** Rural connectivity business is threatened by LEO satellite competitors like Starlink.
+
+### WDC
+🔴 **Bear:** Trading at 46x earnings, which is too expensive compared to peers like Micron.
+
+## Macro Themes
+
+- AI hardware vs software rotation
+- Mega IPO liquidity drain
+- US semiconductor domestic manufacturing
+- Agentic and Physical AI
+- ETF-driven market volatility
+
+**Sectors discussed:** Technology, Energy, Telecommunications
+
+## Key Quotes
+
+> "I wanna buy winners on a momentary slide, not losers that may just be resting before the next decline."
+> — *Jim Cramer* (Strategy for handling market rotations.)
+
+> "The main reason I joined this company... is to save the company, and also good for United States."
+> — *Lip-Bu Tan* (Motivation for becoming Intel CEO.)
+
+> "Nothing crushes a market like a flood of new supply."
+> — *Jim Cramer* (Warning about upcoming mega IPOs from SpaceX and OpenAI.)
+
+---
+*Generated by Podcast Financial Analyzer — 2026-05-19 12:54*

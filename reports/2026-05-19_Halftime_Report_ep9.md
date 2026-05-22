@@ -1,0 +1,97 @@
+# Halftime Report
+## How to Trade the Momentum Rollover 5/19/26
+**Date:** 2026-05-19  |  **Sentiment:** 🟢 Bullish (+2/5)
+
+---
+
+## Market Outlook
+The market is experiencing a "momentum rollover," characterized by a pullback in overextended semiconductor and tech stocks driven by spiking bond yields. While some analysts view this as a healthy refresh of an overbought market, others warn that the depth of the correction will be determined by the trajectory of inflation and rates.
+
+## Key Stocks Discussed
+*   **NVDA (Bullish):** Strong fundamentals/AI demand; price targets $320–$352. Earnings are the immediate catalyst.
+*   **GOOGL (Very Bullish):** Unique "three-headed" advantage across AI models, TPUs, and cloud monetization.
+*   **BABA (Bullish):** Leading Chinese AI/cloud player; low risk with potential for multiple expansion.
+*   **LLY (Bullish):** Strong execution in Crohn's and diabetes beyond obesity drugs; Citi reiterated Buy.
+*   **MU (Neutral):** Strong current demand but future capacity additions may cap earnings; targets $800 (Mizuho) and $840 (Citi).
+*   **PLTR (Bearish):** Extreme long-duration valuation makes it highly sensitive to rising interest rates.
+*   **AVGO (Bullish):** Core AI infrastructure trade; price target $582.
+*   **AMD (Bullish):** Maintained as a core semiconductor position despite recent pullbacks.
+*   **MRVL:** Upside price target $155.
+
+## Macro & Sector Themes
+*   **Momentum Rollover:** A reversal in the most crowded trade (semiconductors), with capital rotating into defensive sectors—specifically Healthcare, Utilities, and Consumer Staples—rather than exiting the market entirely.
+*   **Yield Dominance:** Bond yields are currently overrunning other catalysts; 10-year (4.68%) and 30-year yields are the primary drivers of equity volatility.
+*   **AI Capex Cycle:** Long-term bullishness on AI infrastructure remains, but short-term price action has overshot fundamentals, necessitating a technical correction.
+
+## Actionable Takeaways
+*   **Watch NVDA Earnings:** Use tomorrow night's results as the primary signal for whether the semi pullback is a dip or a trend reversal.
+*   **Monitor Yield Thresholds:** Track 10Y and 30Y yields to determine the floor of the current momentum unwind.
+*   **Execute Defensive Rotation:** Shift exposure toward Healthcare and Utilities to mitigate volatility while maintaining equity beta.
+*   **Avoid High-Duration Risk:** Reduce exposure to assets with extreme valuations (e.g., PLTR) that lack immediate cash flow to offset rising rate pressures.
+
+---
+
+## Stocks Mentioned
+
+| Symbol | Name | Sentiment | Context |
+|--------|------|-----------|---------|
+| **NVDA** | Nvidia | 🟢 bullish | Strong fundamentals and AI demand despite technical stretch. |
+| **MU** | Micron Technology | ⚪ neutral | Strong current demand but concerns over future capacity coming online. |
+| **GOOGL** | Alphabet Inc. | 🟢 very bullish | Clear leader in AI with a three-pronged approach: models, chips, and cloud. |
+| **BABA** | Alibaba Group | 🟢 bullish | Considered the best AI play in China with low risk. |
+| **LLY** | Eli Lilly | 🟢 bullish | Strong execution in Crohn's disease and diabetes beyond obesity drugs. |
+| **AMD** | Advanced Micro Devices | 🟢 bullish | Held as a core semiconductor position despite recent pullback. |
+| **AVGO** | Broadcom Inc. | 🟢 bullish | Held as part of the AI infrastructure trade. |
+| **PLTR** | Palantir Technologies | 🔴 bearish | Viewed as a long-duration asset highly sensitive to rising rates. |
+
+## Price Targets
+
+| Ticker | Target | Direction | Source |
+|--------|--------|-----------|--------|
+| **MU** | $840 | upside | Citi |
+| **MU** | $800 | upside | Mizuho |
+| **MRVL** | $155 | upside | None |
+| **AVGO** | $582 | upside | None |
+| **NVDA** | $320 | upside | None |
+| **NVDA** | $352 | upside | None |
+
+## Ratings Changes
+
+- **LLY**: Citi REITERATE → Buy
+
+## Bull & Bear Cases
+
+### BABA
+🟢 **Bull:** Leading domestic AI and cloud player in China with potential for multiple expansion if repatriated.
+
+### GOOGL
+🟢 **Bull:** Possesses a unique 'three-headed' advantage in AI models, TPUs, and cloud monetization.
+
+### MU
+🔴 **Bear:** Future capacity additions may eventually cap earnings multiples and ease demand.
+
+### PLTR
+🔴 **Bear:** Extreme long-duration valuation makes it vulnerable to rising interest rates.
+
+## Macro Themes
+
+- Bond yield volatility
+- AI capex cycle
+- Momentum rollover
+- Inflation and rates path
+
+**Sectors discussed:** Technology, Healthcare, Industrials, Consumer Discretionary
+
+## Key Quotes
+
+> "You never know where a peak is until you pass one."
+> — *Brian Belsky* (Discussing market timing and technical peaks.)
+
+> "The market has the ability to rotate, not go to the exit."
+> — *Joe Terranova* (Analyzing capital movement from tech to defensive sectors.)
+
+> "I hate losing money on trades."
+> — *Steve Weiss* (Explaining his decision to move to the sidelines.)
+
+---
+*Generated by Podcast Financial Analyzer — 2026-05-19 13:52*
