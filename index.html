@@ -32,13 +32,13 @@ header{display:flex;align-items:flex-end;justify-content:space-between;padding:4
 .section-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
 .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
 .stat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px;}
-.stat-card{background:var(--surface);border:1px solid var(--border);padding:20px;position:relative;overflow:hidden;animation:fadeUp .4s ease both;}
+.stat-card{background:var(--surface);border:1px solid var(--border);padding:20px;position:relative;overflow:hidden;}
 .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);}
 .stat-val{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent);line-height:1;letter-spacing:2px;}
 .stat-label{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:6px;}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;}
 .full-col{margin-bottom:32px;}
-.panel{background:var(--surface);border:1px solid var(--border);padding:20px;animation:fadeUp .5s ease both;}
+.panel{background:var(--surface);border:1px solid var(--border);padding:20px;}
 .panel-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border);}
 .ticker-grid{display:flex;flex-direction:column;gap:6px;max-height:400px;overflow-y:auto;}
 .ticker-row{display:grid;grid-template-columns:70px 1fr 80px 100px;align-items:center;gap:12px;padding:8px 10px;background:var(--surface2);border:1px solid transparent;transition:border-color .15s;}
@@ -107,13 +107,12 @@ header{display:flex;align-items:flex-end;justify-content:space-between;padding:4
 .date-range select{font-family:'DM Mono';font-size:11px;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:6px 12px;cursor:pointer;outline:none;}
 .date-range select:focus{border-color:var(--accent);}
 .no-data{font-family:'DM Mono';font-size:11px;color:var(--dim);padding:20px 0;text-align:center;letter-spacing:2px;}
-/* Modal */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;align-items:center;justify-content:center;padding:20px;}
 .modal-overlay.open{display:flex;}
-.modal{background:var(--surface);border:1px solid var(--border);max-width:780px;width:100%;max-height:88vh;display:flex;flex-direction:column;animation:fadeUp .2s ease;}
+.modal{background:var(--surface);border:1px solid var(--border);max-width:780px;width:100%;max-height:88vh;display:flex;flex-direction:column;}
 .modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);flex-shrink:0;}
 .modal-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);}
-.modal-close{background:none;border:1px solid var(--border);color:var(--muted);font-size:16px;cursor:pointer;padding:4px 10px;transition:all .15s;font-family:'DM Mono',monospace;}
+.modal-close{background:none;border:1px solid var(--border);color:var(--muted);font-size:16px;cursor:pointer;padding:4px 10px;font-family:'DM Mono',monospace;}
 .modal-close:hover{border-color:var(--accent);color:var(--accent);}
 .modal-body{padding:24px;overflow-y:auto;flex:1;line-height:1.7;}
 .modal-body h1{font-family:'Bebas Neue';font-size:36px;color:var(--accent);letter-spacing:2px;margin-bottom:4px;}
@@ -143,21 +142,19 @@ header{display:flex;align-items:flex-end;justify-content:space-between;padding:4
     </div>
     <div class="header-right">
       <div id="load-section">
-        <button class="file-btn" onclick="fetchFromGitHub()">↻ Refresh</button>
-        <button class="file-btn secondary" style="margin-top:6px" onclick="document.getElementById('file-input').click()">▲ Load Local File</button>
+        <button class="file-btn" onclick="fetchFromGitHub()">&#8635; Refresh</button>
+        <button class="file-btn secondary" style="margin-top:6px" onclick="document.getElementById('file-input').click()">&#9650; Load Local File</button>
         <input type="file" id="file-input" accept=".db" onchange="loadDatabase(this)">
         <div class="status-pill" id="db-status">Loading...</div>
         <div class="status-pill" id="db-updated" style="margin-top:2px"></div>
       </div>
     </div>
   </header>
-
   <div id="empty-state">
     <div class="big">SIGNAL</div>
     <p id="empty-msg">Fetching latest data...</p>
     <p style="font-size:11px;margin-top:4px;color:var(--dim)" id="empty-sub"></p>
   </div>
-
   <div id="dashboard">
     <div class="date-range">
       <label>SHOWING</label>
@@ -170,7 +167,7 @@ header{display:flex;align-items:flex-end;justify-content:space-between;padding:4
     </div>
     <div class="section-label">Overview</div>
     <div class="stat-row" id="stat-row"></div>
-    <div class="section-label">High Conviction — Mentioned Across Multiple Shows</div>
+    <div class="section-label">High Conviction</div>
     <div class="panel full-col">
       <div class="panel-title">Cross-Show Ticker Overlap</div>
       <div class="conviction-grid" id="conviction-grid"></div>
@@ -188,7 +185,7 @@ header{display:flex;align-items:flex-end;justify-content:space-between;padding:4
     </div>
     <div class="two-col">
       <div class="panel">
-        <div class="panel-title">Price Targets Mentioned</div>
+        <div class="panel-title">Price Targets</div>
         <div class="target-list" id="target-list"></div>
       </div>
       <div class="panel">
@@ -202,317 +199,294 @@ header{display:flex;align-items:flex-end;justify-content:space-between;padding:4
     </div>
     <div class="section-label">Episode Log</div>
     <div class="panel full-col">
-      <div class="panel-title">All Episodes — click 📄 rows to read report</div>
+      <div class="panel-title">All Episodes &mdash; click rows with &#128196; to read report</div>
       <div class="episode-list" id="episode-list"></div>
     </div>
   </div>
-
-  <!-- Report Modal -->
   <div class="modal-overlay" id="report-modal" onclick="closeModal(event)">
     <div class="modal">
       <div class="modal-header">
         <div class="modal-title" id="modal-title">Episode Report</div>
-        <button class="modal-close" onclick="document.getElementById('report-modal').classList.remove('open')">✕ Close</button>
+        <button class="modal-close" onclick="document.getElementById('report-modal').classList.remove('open')">&#10005; Close</button>
       </div>
       <div class="modal-body" id="modal-body">
-        <div class="modal-loading">LOADING REPORT...</div>
+        <div class="modal-loading">LOADING...</div>
       </div>
     </div>
   </div>
 </div>
-
 <script>
-// ── State ─────────────────────────────────────────────────────────────────────
-let SQL = null;
-let db  = null;
-let sentimentChart = null;
-let activeTickerFilter = 'ALL';
-let availableReports = [];
-const reportCache = {};
+var SQL = null, db = null, sentimentChart = null, activeTickerFilter = 'ALL';
+var availableReports = [];
+var reportCache = {};
+var episodeStore = {};
 
-// ── GitHub config ─────────────────────────────────────────────────────────────
-const GITHUB_USER = 'aoste67';
-const GITHUB_REPO = 'podcast-dashboard';
-const DB_FILE     = 'podcast_analyzer.db';
-const META_FILE   = 'meta.json';
-const RAW_BASE    = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/main`;
+var GITHUB_USER = 'aoste67';
+var GITHUB_REPO = 'podcast-dashboard';
+var DB_FILE = 'podcast_analyzer.db';
+var META_FILE = 'meta.json';
+var RAW_BASE = 'https://raw.githubusercontent.com/' + GITHUB_USER + '/' + GITHUB_REPO + '/main';
 
-// ── Init ──────────────────────────────────────────────────────────────────────
-initSqlJs({ locateFile: f => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/${f}` })
-  .then(s => { SQL = s; fetchFromGitHub(); });
+initSqlJs({ locateFile: function(f){ return 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.2/' + f; } })
+  .then(function(s){ SQL = s; fetchFromGitHub(); });
 
-// ── Fetch from GitHub ─────────────────────────────────────────────────────────
 async function fetchFromGitHub() {
   document.getElementById('db-status').textContent = 'Fetching...';
   document.getElementById('db-status').className = 'status-pill';
   document.getElementById('empty-msg').textContent = 'Fetching latest data from GitHub...';
   document.getElementById('dashboard').style.display = 'none';
   document.getElementById('empty-state').style.display = 'flex';
-
   try {
-    // Load meta for timestamps + report list
     try {
-      const metaRes = await fetch(`${RAW_BASE}/${META_FILE}?t=${Date.now()}`);
+      var metaRes = await fetch(RAW_BASE + '/' + META_FILE + '?t=' + Date.now());
       if (metaRes.ok) {
-        const meta = await metaRes.json();
+        var meta = await metaRes.json();
         availableReports = meta.reports || [];
         if (meta.last_updated) {
-          const d = new Date(meta.last_updated);
-          document.getElementById('db-updated').textContent =
-            `Updated ${d.toLocaleDateString()} ${d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})}`;
+          var d = new Date(meta.last_updated);
+          document.getElementById('db-updated').textContent = 'Updated ' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
         }
       }
-    } catch(_) {}
-
-    const res = await fetch(`${RAW_BASE}/${DB_FILE}?t=${Date.now()}`);
-    if (!res.ok) throw new Error(`HTTP ${res.status} — database not found in repo`);
-    const arr = new Uint8Array(await res.arrayBuffer());
+    } catch(e) { console.log('meta fetch failed', e); }
+    var res = await fetch(RAW_BASE + '/' + DB_FILE + '?t=' + Date.now());
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    var arr = new Uint8Array(await res.arrayBuffer());
     db = new SQL.Database(arr);
-
-    document.getElementById('db-status').textContent = '✓ Live from GitHub';
+    document.getElementById('db-status').textContent = 'Live from GitHub';
     document.getElementById('db-status').className = 'status-pill loaded';
     document.getElementById('empty-state').style.display = 'none';
     document.getElementById('dashboard').style.display = 'block';
     renderAll();
   } catch(err) {
-    document.getElementById('db-status').textContent = '⚠ Could not load from GitHub';
-    document.getElementById('db-status').className = 'status-pill';
+    document.getElementById('db-status').textContent = 'Could not load from GitHub';
     document.getElementById('empty-msg').textContent = 'Could not fetch database';
-    document.getElementById('empty-sub').textContent = 'Use ▲ Load Local File to load from your Mac';
-    console.error('GitHub fetch failed:', err);
+    document.getElementById('empty-sub').textContent = 'Use Load Local File instead';
+    console.error('fetch failed', err);
   }
 }
 
-// ── Load local file ───────────────────────────────────────────────────────────
 function loadDatabase(input) {
   if (!input.files[0]) return;
-  const reader = new FileReader();
-  reader.onload = e => {
+  var reader = new FileReader();
+  reader.onload = function(e) {
     try {
       db = new SQL.Database(new Uint8Array(e.target.result));
-      document.getElementById('db-status').textContent = '✓ ' + input.files[0].name;
+      document.getElementById('db-status').textContent = input.files[0].name;
       document.getElementById('db-status').className = 'status-pill loaded';
       document.getElementById('empty-state').style.display = 'none';
       document.getElementById('dashboard').style.display = 'block';
       renderAll();
-    } catch(err) {
-      alert('Could not read database: ' + err.message);
-    }
+    } catch(err) { alert('Could not read database: ' + err.message); }
   };
   reader.readAsArrayBuffer(input.files[0]);
 }
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
 function getDays() { return parseInt(document.getElementById('days-filter').value); }
 function getDateCutoff() {
-  const days = getDays();
+  var days = getDays();
   if (days >= 9999) return '2000-01-01';
-  const d = new Date(); d.setDate(d.getDate() - days);
+  var d = new Date(); d.setDate(d.getDate() - days);
   return d.toISOString().slice(0,10);
 }
-function safeJSON(val) { if (!val) return []; try { return JSON.parse(val); } catch { return []; } }
-function query(sql, params=[]) {
+function safeJSON(val) { if (!val) return []; try { return JSON.parse(val); } catch(e) { return []; } }
+function query(sql, params) {
+  params = params || [];
   try {
-    const stmt = db.prepare(sql); stmt.bind(params);
-    const rows = [];
+    var stmt = db.prepare(sql); stmt.bind(params);
+    var rows = [];
     while (stmt.step()) rows.push(stmt.getAsObject());
     stmt.free(); return rows;
   } catch(e) { return []; }
 }
 
-// ── Render all ────────────────────────────────────────────────────────────────
 function renderAll() {
   renderStats(); renderConviction(); renderTickers();
   renderSentiment(); renderPriceTargets(); renderThemes();
   renderSentimentChart(); renderEpisodes();
 }
 
-// ── Stats ─────────────────────────────────────────────────────────────────────
+function shortShow(s) {
+  return s.replace('The Compound and Friends','Compound')
+    .replace('Halftime Report','Halftime')
+    .replace('Closing Bell','CB')
+    .replace('Fast Money','FM')
+    .replace('Motley Fool Money','MF')
+    .replace('We Study Billionaires','WSB');
+}
+
 function renderStats() {
-  const cutoff = getDateCutoff();
-  const eps   = query(`SELECT COUNT(*) as n FROM episodes WHERE published_at >= ? AND status='complete'`,[cutoff])[0]?.n||0;
-  const shows = query(`SELECT COUNT(DISTINCT podcast_name) as n FROM episodes WHERE published_at >= ?`,[cutoff])[0]?.n||0;
-  const rows  = query(`SELECT a.tickers FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ?`,[cutoff]);
-  const tickerSet = new Set();
-  rows.forEach(r => safeJSON(r.tickers).forEach(t => t.symbol && tickerSet.add(t.symbol)));
-  const sentRows = query(`SELECT AVG(a.sentiment_score) as avg FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ?`,[cutoff]);
-  const avgSent = (sentRows[0]?.avg||0).toFixed(1);
-  const sentLabel = avgSent>1?'🟢 BULLISH':avgSent<-1?'🔴 BEARISH':'⚪ NEUTRAL';
-  document.getElementById('stat-row').innerHTML = `
-    <div class="stat-card"><div class="stat-val">${eps}</div><div class="stat-label">Episodes Analyzed</div></div>
-    <div class="stat-card"><div class="stat-val">${shows}</div><div class="stat-label">Shows Monitored</div></div>
-    <div class="stat-card"><div class="stat-val">${tickerSet.size}</div><div class="stat-label">Unique Tickers</div></div>
-    <div class="stat-card"><div class="stat-val" style="font-size:28px;padding-top:10px">${sentLabel}</div><div class="stat-label">Avg Sentiment (${avgSent}/5)</div></div>`;
+  var cutoff = getDateCutoff();
+  var eps = query("SELECT COUNT(*) as n FROM episodes WHERE published_at >= ? AND status='complete'",[cutoff])[0];
+  var shows = query("SELECT COUNT(DISTINCT podcast_name) as n FROM episodes WHERE published_at >= ?",[cutoff])[0];
+  var rows = query("SELECT a.tickers FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ?",[cutoff]);
+  var tickerSet = {};
+  rows.forEach(function(r){ safeJSON(r.tickers).forEach(function(t){ if(t.symbol) tickerSet[t.symbol]=1; }); });
+  var sentRows = query("SELECT AVG(a.sentiment_score) as avg FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ?",[cutoff]);
+  var avgSent = parseFloat((sentRows[0]||{}).avg||0).toFixed(1);
+  var sentLabel = avgSent>1?'BULLISH':avgSent<-1?'BEARISH':'NEUTRAL';
+  document.getElementById('stat-row').innerHTML =
+    '<div class="stat-card"><div class="stat-val">'+(eps?eps.n:0)+'</div><div class="stat-label">Episodes Analyzed</div></div>'+
+    '<div class="stat-card"><div class="stat-val">'+(shows?shows.n:0)+'</div><div class="stat-label">Shows Monitored</div></div>'+
+    '<div class="stat-card"><div class="stat-val">'+Object.keys(tickerSet).length+'</div><div class="stat-label">Unique Tickers</div></div>'+
+    '<div class="stat-card"><div class="stat-val" style="font-size:28px;padding-top:10px">'+sentLabel+'</div><div class="stat-label">Avg Sentiment ('+avgSent+'/5)</div></div>';
 }
 
-// ── Conviction ────────────────────────────────────────────────────────────────
 function renderConviction() {
-  const cutoff = getDateCutoff();
-  const rows = query(`SELECT e.podcast_name, a.tickers FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ?`,[cutoff]);
-  const tickerShows = {};
-  rows.forEach(r => {
-    safeJSON(r.tickers).forEach(t => {
+  var cutoff = getDateCutoff();
+  var rows = query("SELECT e.podcast_name, a.tickers FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ?",[cutoff]);
+  var ts = {};
+  rows.forEach(function(r){
+    safeJSON(r.tickers).forEach(function(t){
       if (!t.symbol) return;
-      if (!tickerShows[t.symbol]) tickerShows[t.symbol]={name:t.name||'',shows:new Set(),sentiment:[]};
-      tickerShows[t.symbol].shows.add(r.podcast_name);
-      tickerShows[t.symbol].sentiment.push(t.sentiment||'');
+      if (!ts[t.symbol]) ts[t.symbol]={shows:{},bulls:0,bears:0};
+      ts[t.symbol].shows[r.podcast_name]=1;
+      if ((t.sentiment||'').indexOf('bull')>=0) ts[t.symbol].bulls++;
+      if ((t.sentiment||'').indexOf('bear')>=0) ts[t.symbol].bears++;
     });
   });
-  const multi = Object.entries(tickerShows).filter(([,d])=>d.shows.size>=2).sort((a,b)=>b[1].shows.size-a[1].shows.size);
-  const el = document.getElementById('conviction-grid');
+  var multi = Object.keys(ts).filter(function(s){ return Object.keys(ts[s].shows).length>=2; })
+    .sort(function(a,b){ return Object.keys(ts[b].shows).length - Object.keys(ts[a].shows).length; });
+  var el = document.getElementById('conviction-grid');
   if (!multi.length) { el.innerHTML='<div class="no-data">NO CROSS-SHOW TICKERS YET</div>'; return; }
-  el.innerHTML = multi.map(([sym,d]) => {
-    const shows=[...d.shows].map(s=>s.replace('The Compound and Friends','Compound').replace('Halftime Report','Halftime').replace('Closing Bell','CB').replace('Fast Money','FM').replace('Motley Fool Money','MF').replace('We Study Billionaires','WSB')).join(' · ');
-    const bulls=d.sentiment.filter(s=>s.includes('bull')).length;
-    const bears=d.sentiment.filter(s=>s.includes('bear')).length;
-    const sentColor=bulls>bears?'var(--green)':bears>bulls?'var(--red)':'var(--muted)';
-    return `<div class="conviction-chip"><div><div class="chip-sym">${sym}</div><div style="font-family:'DM Mono';font-size:9px;color:${sentColor}">${bulls>bears?'▲ BULLISH':bears>bulls?'▼ BEARISH':'● MIXED'}</div></div><div class="chip-shows">${shows}<br><span style="color:var(--dim)">${d.shows.size} shows</span></div></div>`;
+  el.innerHTML = multi.map(function(sym){
+    var d = ts[sym];
+    var shows = Object.keys(d.shows).map(shortShow).join(' - ');
+    var sentColor = d.bulls>d.bears?'var(--green)':d.bears>d.bulls?'var(--red)':'var(--muted)';
+    var sentTxt = d.bulls>d.bears?'BULLISH':d.bears>d.bulls?'BEARISH':'MIXED';
+    return '<div class="conviction-chip"><div><div class="chip-sym">'+sym+'</div><div style="font-family:DM Mono;font-size:9px;color:'+sentColor+'">'+sentTxt+'</div></div><div class="chip-shows">'+shows+'<br><span style="color:var(--dim)">'+Object.keys(d.shows).length+' shows</span></div></div>';
   }).join('');
 }
 
-// ── Tickers ───────────────────────────────────────────────────────────────────
 function renderTickers() {
-  const cutoff = getDateCutoff();
-  const rows = query(`SELECT e.podcast_name, a.tickers FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ?`,[cutoff]);
-  const shows = [...new Set(rows.map(r=>r.podcast_name))];
-  document.getElementById('ticker-filter').innerHTML = ['ALL',...shows].map(s => {
-    const short=s.replace('The Compound and Friends','Compound').replace('Halftime Report','Halftime').replace('Closing Bell','CB').replace('Fast Money','FM').replace('Motley Fool Money','MF').replace('We Study Billionaires','WSB');
-    return `<button class="filter-btn ${activeTickerFilter===s?'active':''}" onclick="setTickerFilter('${s}')">${short}</button>`;
+  var cutoff = getDateCutoff();
+  var rows = query("SELECT e.podcast_name, a.tickers FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ?",[cutoff]);
+  var shows = [];
+  rows.forEach(function(r){ if (shows.indexOf(r.podcast_name)<0) shows.push(r.podcast_name); });
+  document.getElementById('ticker-filter').innerHTML = ['ALL'].concat(shows).map(function(s){
+    return '<button class="filter-btn '+(activeTickerFilter===s?'active':'')+'" onclick="setTickerFilter(\''+s+'\')">'+shortShow(s)+'</button>';
   }).join('');
-  const tickerMap = {};
-  rows.forEach(r => {
+  var tm = {};
+  rows.forEach(function(r){
     if (activeTickerFilter!=='ALL' && r.podcast_name!==activeTickerFilter) return;
-    safeJSON(r.tickers).forEach(t => {
+    safeJSON(r.tickers).forEach(function(t){
       if (!t.symbol) return;
-      if (!tickerMap[t.symbol]) tickerMap[t.symbol]={name:t.name||'',count:0,shows:new Set()};
-      tickerMap[t.symbol].count++;
-      tickerMap[t.symbol].shows.add(r.podcast_name);
+      if (!tm[t.symbol]) tm[t.symbol]={name:t.name||'',count:0,shows:{}};
+      tm[t.symbol].count++;
+      tm[t.symbol].shows[r.podcast_name]=1;
     });
   });
-  const sorted = Object.entries(tickerMap).sort((a,b)=>b[1].count-a[1].count).slice(0,20);
-  const maxCount = sorted[0]?.[1].count||1;
-  document.getElementById('ticker-grid').innerHTML = sorted.length ? sorted.map(([sym,d]) => {
-    const pct=(d.count/maxCount*100).toFixed(0);
-    const multi=d.shows.size>1;
-    const showStr=[...d.shows].map(s=>s.replace('The Compound and Friends','CPD').replace('Halftime Report','HLF').replace('Closing Bell','CB').replace('Fast Money','FM').replace('Motley Fool Money','MF').replace('We Study Billionaires','WSB')).join(' ');
-    return `<div class="ticker-row"><div class="ticker-sym">${sym}</div><div><div class="ticker-name">${d.name}</div><div class="bar-wrap" style="margin-top:4px"><div class="bar-fill ${multi?'multi':''}" style="width:${pct}%"></div></div></div><div class="mention-count">${d.count}</div><div class="ticker-shows">${showStr}</div></div>`;
+  var sorted = Object.keys(tm).sort(function(a,b){ return tm[b].count-tm[a].count; }).slice(0,20);
+  var maxC = sorted.length ? tm[sorted[0]].count : 1;
+  document.getElementById('ticker-grid').innerHTML = sorted.length ? sorted.map(function(sym){
+    var d=tm[sym]; var pct=(d.count/maxC*100).toFixed(0);
+    var multi=Object.keys(d.shows).length>1;
+    var showStr=Object.keys(d.shows).map(shortShow).join(' ');
+    return '<div class="ticker-row"><div class="ticker-sym">'+sym+'</div><div><div class="ticker-name">'+d.name+'</div><div class="bar-wrap" style="margin-top:4px"><div class="bar-fill'+(multi?' multi':'')+'" style="width:'+pct+'%"></div></div></div><div class="mention-count">'+d.count+'</div><div class="ticker-shows">'+showStr+'</div></div>';
   }).join('') : '<div class="no-data">NO DATA</div>';
 }
-function setTickerFilter(show) { activeTickerFilter=show; renderTickers(); }
+function setTickerFilter(s){ activeTickerFilter=s; renderTickers(); }
 
-// ── Sentiment ─────────────────────────────────────────────────────────────────
 function renderSentiment() {
-  const cutoff = getDateCutoff();
-  const rows = query(`SELECT e.podcast_name, AVG(a.sentiment_score) as avg_score, COUNT(*) as ep_count FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ? GROUP BY e.podcast_name ORDER BY avg_score DESC`,[cutoff]);
-  document.getElementById('sentiment-list').innerHTML = rows.length ? rows.map(r => {
-    const score=parseFloat(r.avg_score||0).toFixed(1);
-    const pct=Math.abs(score)/5*50;
-    const isBull=score>=0;
-    const cls=score>0.5?'pos':score<-0.5?'neg':'neu';
-    return `<div class="sentiment-row"><div class="sentiment-show">${r.podcast_name} <span style="color:var(--dim);font-size:9px">(${r.ep_count} eps)</span></div><div class="sentiment-track"><div class="sentiment-fill ${isBull?'bull':'bear'}" style="width:${pct}%"></div></div><div class="sentiment-score ${cls}">${score>0?'+':''}${score}</div></div>`;
+  var cutoff = getDateCutoff();
+  var rows = query("SELECT e.podcast_name, AVG(a.sentiment_score) as avg_score, COUNT(*) as ep_count FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ? GROUP BY e.podcast_name ORDER BY avg_score DESC",[cutoff]);
+  document.getElementById('sentiment-list').innerHTML = rows.length ? rows.map(function(r){
+    var score=parseFloat(r.avg_score||0).toFixed(1);
+    var pct=Math.abs(score)/5*50;
+    var isBull=score>=0;
+    var cls=score>0.5?'pos':score<-0.5?'neg':'neu';
+    return '<div class="sentiment-row"><div class="sentiment-show">'+r.podcast_name+' <span style="color:var(--dim);font-size:9px">('+r.ep_count+' eps)</span></div><div class="sentiment-track"><div class="sentiment-fill '+(isBull?'bull':'bear')+'" style="width:'+pct+'%"></div></div><div class="sentiment-score '+cls+'">'+(score>0?'+':'')+score+'</div></div>';
   }).join('') : '<div class="no-data">NO DATA</div>';
 }
 
-// ── Price targets ─────────────────────────────────────────────────────────────
 function renderPriceTargets() {
-  const cutoff = getDateCutoff();
-  const rows = query(`SELECT e.podcast_name, e.published_at, a.price_targets FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ? AND a.price_targets IS NOT NULL`,[cutoff]);
-  const targets=[];
-  rows.forEach(r => safeJSON(r.price_targets).forEach(pt => { if(pt.ticker&&pt.target) targets.push({...pt,show:r.podcast_name,date:(r.published_at||'').slice(0,10)}); }));
-  document.getElementById('target-list').innerHTML = targets.length ? targets.slice(0,20).map(t => {
-    const dir=(t.direction||'').toLowerCase();
-    const dirCls=dir.includes('up')||dir.includes('bull')?'up':dir.includes('down')||dir.includes('bear')?'down':'';
-    const dirLabel=dirCls==='up'?'▲ UPSIDE':dirCls==='down'?'▼ DOWNSIDE':dir.toUpperCase();
-    return `<div class="target-row"><div class="target-sym">${t.ticker}</div><div class="target-show">${t.show} · ${t.date}</div><div class="target-price">$${t.target}</div><div class="target-dir ${dirCls}">${dirLabel}</div></div>`;
-  }).join('') : '<div class="no-data">NO PRICE TARGETS FOUND</div>';
+  var cutoff = getDateCutoff();
+  var rows = query("SELECT e.podcast_name, e.published_at, a.price_targets FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ? AND a.price_targets IS NOT NULL",[cutoff]);
+  var targets=[];
+  rows.forEach(function(r){ safeJSON(r.price_targets).forEach(function(pt){ if(pt.ticker&&pt.target) targets.push({sym:pt.ticker,target:pt.target,dir:pt.direction||'',show:r.podcast_name,date:(r.published_at||'').slice(0,10)}); }); });
+  document.getElementById('target-list').innerHTML = targets.length ? targets.slice(0,20).map(function(t){
+    var dir=t.dir.toLowerCase();
+    var cls=dir.indexOf('up')>=0||dir.indexOf('bull')>=0?'up':dir.indexOf('down')>=0||dir.indexOf('bear')>=0?'down':'';
+    var lbl=cls==='up'?'UPSIDE':cls==='down'?'DOWNSIDE':dir.toUpperCase();
+    return '<div class="target-row"><div class="target-sym">'+t.sym+'</div><div class="target-show">'+t.show+' - '+t.date+'</div><div class="target-price">$'+t.target+'</div><div class="target-dir '+cls+'">'+lbl+'</div></div>';
+  }).join('') : '<div class="no-data">NO PRICE TARGETS</div>';
 }
 
-// ── Themes ────────────────────────────────────────────────────────────────────
 function renderThemes() {
-  const cutoff = getDateCutoff();
-  const rows = query(`SELECT a.macro_themes FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ?`,[cutoff]);
-  const themeCounts={};
-  rows.forEach(r => safeJSON(r.macro_themes).forEach(t => { if(!t) return; const k=t.toLowerCase().trim(); themeCounts[k]=(themeCounts[k]||0)+1; }));
-  const sorted=Object.entries(themeCounts).sort((a,b)=>b[1]-a[1]);
-  const max=sorted[0]?.[1]||1;
-  document.getElementById('theme-cloud').innerHTML = sorted.slice(0,30).map(([theme,count]) => {
-    const cls=count>=max*.6?'hot':count>=max*.3?'warm':'';
-    return `<div class="theme-tag ${cls}">${theme} <span style="opacity:.5">${count}</span></div>`;
+  var cutoff = getDateCutoff();
+  var rows = query("SELECT a.macro_themes FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ?",[cutoff]);
+  var tc={};
+  rows.forEach(function(r){ safeJSON(r.macro_themes).forEach(function(t){ if(!t) return; var k=t.toLowerCase().trim(); tc[k]=(tc[k]||0)+1; }); });
+  var sorted=Object.keys(tc).sort(function(a,b){ return tc[b]-tc[a]; });
+  var max=sorted.length?tc[sorted[0]]:1;
+  document.getElementById('theme-cloud').innerHTML = sorted.slice(0,30).map(function(t){
+    var cls=tc[t]>=max*.6?'hot':tc[t]>=max*.3?'warm':'';
+    return '<div class="theme-tag '+cls+'">'+t+' <span style="opacity:.5">'+tc[t]+'</span></div>';
   }).join('')||'<div class="no-data">NO THEMES</div>';
 }
 
-// ── Sentiment chart ───────────────────────────────────────────────────────────
 function renderSentimentChart() {
-  const cutoff = getDateCutoff();
-  const rows = query(`SELECT e.podcast_name, DATE(e.published_at) as date, AVG(a.sentiment_score) as score FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ? GROUP BY e.podcast_name, DATE(e.published_at) ORDER BY date ASC`,[cutoff]);
-  const shows=[...new Set(rows.map(r=>r.podcast_name))];
-  const dates=[...new Set(rows.map(r=>r.date))].sort();
-  const colors=['#00d4ff','#ff6b35','#00e676','#ffd740','#c084fc','#f472b6'];
-  const datasets=shows.map((show,i)=>({
-    label:show.replace('The Compound and Friends','Compound').replace('Halftime Report','Halftime').replace('We Study Billionaires','WSB'),
-    data:dates.map(d=>{const r=rows.find(r=>r.podcast_name===show&&r.date===d);return r?parseFloat(r.score).toFixed(1):null;}),
-    borderColor:colors[i%colors.length],backgroundColor:colors[i%colors.length]+'20',
-    pointBackgroundColor:colors[i%colors.length],pointRadius:4,tension:.3,spanGaps:true,fill:false,
-  }));
-  if(sentimentChart) sentimentChart.destroy();
-  sentimentChart=new Chart(document.getElementById('sentiment-chart').getContext('2d'),{
-    type:'line',data:{labels:dates,datasets},
-    options:{responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{labels:{color:'#5a6478',font:{family:'DM Mono',size:10},boxWidth:12}},tooltip:{backgroundColor:'#111318',borderColor:'#1e2530',borderWidth:1,titleFont:{family:'DM Mono'},bodyFont:{family:'DM Mono'}}},
-      scales:{x:{ticks:{color:'#5a6478',font:{family:'DM Mono',size:10}},grid:{color:'#1e2530'}},y:{min:-5,max:5,ticks:{color:'#5a6478',font:{family:'DM Mono',size:10}},grid:{color:'#1e2530'},title:{display:true,text:'Sentiment Score',color:'#5a6478',font:{family:'DM Mono',size:10}}}}}
+  var cutoff = getDateCutoff();
+  var rows = query("SELECT e.podcast_name, DATE(e.published_at) as date, AVG(a.sentiment_score) as score FROM analysis a JOIN episodes e ON e.id=a.episode_id WHERE e.published_at >= ? GROUP BY e.podcast_name, DATE(e.published_at) ORDER BY date ASC",[cutoff]);
+  var shows=[]; rows.forEach(function(r){ if(shows.indexOf(r.podcast_name)<0) shows.push(r.podcast_name); });
+  var dates=[]; rows.forEach(function(r){ if(dates.indexOf(r.date)<0) dates.push(r.date); }); dates.sort();
+  var colors=['#00d4ff','#ff6b35','#00e676','#ffd740','#c084fc','#f472b6'];
+  var datasets=shows.map(function(show,i){
+    return {label:shortShow(show),data:dates.map(function(d){ var r=rows.find(function(r){ return r.podcast_name===show&&r.date===d; }); return r?parseFloat(r.score).toFixed(1):null; }),borderColor:colors[i%colors.length],backgroundColor:colors[i%colors.length]+'20',pointBackgroundColor:colors[i%colors.length],pointRadius:4,tension:.3,spanGaps:true,fill:false};
   });
+  if(sentimentChart) sentimentChart.destroy();
+  sentimentChart=new Chart(document.getElementById('sentiment-chart').getContext('2d'),{type:'line',data:{labels:dates,datasets:datasets},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{labels:{color:'#5a6478',font:{family:'DM Mono',size:10},boxWidth:12}},tooltip:{backgroundColor:'#111318',borderColor:'#1e2530',borderWidth:1}},scales:{x:{ticks:{color:'#5a6478',font:{family:'DM Mono',size:10}},grid:{color:'#1e2530'}},y:{min:-5,max:5,ticks:{color:'#5a6478',font:{family:'DM Mono',size:10}},grid:{color:'#1e2530'}}}}});
 }
 
-// ── Episode log ───────────────────────────────────────────────────────────────
 function getReportFilename(episode) {
   if (!availableReports.length) return null;
-  const date = (episode.published_at || '').slice(0, 10);
-  const id   = episode.id;
-  // Find any report file matching this episode id and date
-  return availableReports.find(f => f.includes(`ep${id}`) && f.includes(date)) || null;
+  var date = (episode.published_at || '').slice(0, 10);
+  var id = episode.id;
+  for (var i=0; i<availableReports.length; i++) {
+    var f = availableReports[i];
+    if (f.indexOf('ep' + id + '.') >= 0 && f.indexOf(date) >= 0) return f;
+  }
+  return null;
 }
 
 function renderEpisodes() {
-  const cutoff = getDateCutoff();
-  const rows = query(`SELECT id, podcast_name, episode_title, status, published_at FROM episodes WHERE published_at >= ? ORDER BY published_at DESC`,[cutoff]);
-  document.getElementById('episode-list').innerHTML = rows.length ? rows.map(r => {
-    const filename = getReportFilename(r);
-    const clickable = filename ? 'clickable' : '';
-    const indicator = filename ? ' 📄' : '';
-    const onclick   = filename ? `onclick="openReport(${JSON.stringify(JSON.stringify(r))})"` : '';
-    return `<div class="ep-row ${r.status} ${clickable}" ${onclick}>
-      <div class="ep-date">${(r.published_at||'').slice(0,10)||'—'}</div>
-      <div class="ep-show">${r.podcast_name}</div>
-      <div class="ep-title">${r.episode_title}${indicator}</div>
-      <div class="ep-status ${r.status}">${r.status.toUpperCase()}</div>
-    </div>`;
+  var cutoff = getDateCutoff();
+  var rows = query("SELECT id, podcast_name, episode_title, status, published_at FROM episodes WHERE published_at >= ? ORDER BY published_at DESC",[cutoff]);
+  rows.forEach(function(r){ episodeStore[r.id] = r; });
+  document.getElementById('episode-list').innerHTML = rows.length ? rows.map(function(r){
+    var filename = getReportFilename(r);
+    var clickable = filename ? ' clickable' : '';
+    var indicator = filename ? ' \uD83D\uDCC4' : '';
+    var onclick = filename ? ' onclick="openReport(' + r.id + ')"' : '';
+    return '<div class="ep-row ' + r.status + clickable + '"' + onclick + '>' +
+      '<div class="ep-date">' + (r.published_at||'').slice(0,10) + '</div>' +
+      '<div class="ep-show">' + r.podcast_name + '</div>' +
+      '<div class="ep-title">' + r.episode_title + indicator + '</div>' +
+      '<div class="ep-status ' + r.status + '">' + r.status.toUpperCase() + '</div>' +
+      '</div>';
   }).join('') : '<div class="no-data">NO EPISODES IN RANGE</div>';
 }
 
-// ── Report modal ──────────────────────────────────────────────────────────────
-async function openReport(episodeJson) {
-  const episode  = JSON.parse(episodeJson);
-  const filename = getReportFilename(episode);
-  if (!filename) return;
-
-  const modal = document.getElementById('report-modal');
-  const body  = document.getElementById('modal-body');
-  document.getElementById('modal-title').textContent =
-    `${episode.podcast_name} — ${(episode.published_at||'').slice(0,10)}`;
+async function openReport(episodeId) {
+  var episode = episodeStore[episodeId];
+  if (!episode) { console.error('Episode not found:', episodeId); return; }
+  var filename = getReportFilename(episode);
+  if (!filename) { console.error('No report filename for episode', episodeId); return; }
+  var modal = document.getElementById('report-modal');
+  var body = document.getElementById('modal-body');
+  document.getElementById('modal-title').textContent = episode.podcast_name + ' - ' + (episode.published_at||'').slice(0,10);
   body.innerHTML = '<div class="modal-loading">LOADING REPORT...</div>';
   modal.classList.add('open');
-
   if (reportCache[filename]) { body.innerHTML = renderMarkdown(reportCache[filename]); return; }
-
   try {
-    const url = `${RAW_BASE}/reports/${encodeURIComponent(filename)}?t=${Date.now()}`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const md = await res.text();
+    var url = RAW_BASE + '/reports/' + encodeURIComponent(filename) + '?t=' + Date.now();
+    var res = await fetch(url);
+    if (!res.ok) throw new Error('HTTP ' + res.status + ' fetching ' + url);
+    var md = await res.text();
     reportCache[filename] = md;
     body.innerHTML = renderMarkdown(md);
   } catch(err) {
-    body.innerHTML = `<div class="modal-loading">Could not load report: ${err.message}</div>`;
+    body.innerHTML = '<div class="modal-loading">Could not load: ' + err.message + '</div>';
+    console.error(err);
   }
 }
 
@@ -520,62 +494,36 @@ function closeModal(e) {
   if (e.target === document.getElementById('report-modal'))
     document.getElementById('report-modal').classList.remove('open');
 }
-document.addEventListener('keydown', e => {
-  if (e.key==='Escape') document.getElementById('report-modal').classList.remove('open');
-});
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') document.getElementById('report-modal').classList.remove('open'); });
 
-// ── Markdown renderer ─────────────────────────────────────────────────────────
 function renderMarkdown(md) {
-  const lines = md.split('\n');
-  let html = '';
-  let inList = false;
-  let inTable = false;
-  let tableHtml = '';
-
-  for (let i = 0; i < lines.length; i++) {
-    let line = lines[i];
-
-    // Headers
-    if (line.startsWith('### ')) { if(inList){html+='</ul>';inList=false;} html+=`<h3>${line.slice(4)}</h3>`; continue; }
-    if (line.startsWith('## '))  { if(inList){html+='</ul>';inList=false;} html+=`<h2>${line.slice(3)}</h2>`; continue; }
-    if (line.startsWith('# '))   { if(inList){html+='</ul>';inList=false;} html+=`<h1>${line.slice(2)}</h1>`; continue; }
-
-    // HR
+  var lines = md.split('\n');
+  var html = '';
+  var inList = false, inTable = false, tableHtml = '';
+  for (var i=0; i<lines.length; i++) {
+    var line = lines[i];
+    if (line.indexOf('### ') === 0) { if(inList){html+='</ul>';inList=false;} html+='<h3>'+fmt(line.slice(4))+'</h3>'; continue; }
+    if (line.indexOf('## ') === 0)  { if(inList){html+='</ul>';inList=false;} html+='<h2>'+fmt(line.slice(3))+'</h2>'; continue; }
+    if (line.indexOf('# ') === 0)   { if(inList){html+='</ul>';inList=false;} html+='<h1>'+fmt(line.slice(2))+'</h1>'; continue; }
     if (/^---+$/.test(line)) { if(inList){html+='</ul>';inList=false;} html+='<hr>'; continue; }
-
-    // Blockquote
-    if (line.startsWith('> ')) { if(inList){html+='</ul>';inList=false;} html+=`<blockquote><p>${fmt(line.slice(2))}</p></blockquote>`; continue; }
-
-    // Table
-    if (line.startsWith('|')) {
+    if (line.indexOf('> ') === 0) { if(inList){html+='</ul>';inList=false;} html+='<blockquote><p>'+fmt(line.slice(2))+'</p></blockquote>'; continue; }
+    if (line.indexOf('|') === 0) {
       if (!inTable) { inTable=true; tableHtml='<table>'; }
-      const cells = line.split('|').slice(1,-1).map(c=>c.trim());
-      if (cells.every(c=>/^[-:]+$/.test(c))) continue; // separator
-      const tag = tableHtml==='<table>' ? 'th' : 'td';
-      tableHtml += '<tr>' + cells.map(c=>`<${tag}>${fmt(c)}</${tag}>`).join('') + '</tr>';
+      var cells=line.split('|').slice(1,-1).map(function(c){ return c.trim(); });
+      if (cells.every(function(c){ return /^[-:]+$/.test(c); })) continue;
+      tableHtml+='<tr>'+cells.map(function(c){ return '<td>'+fmt(c)+'</td>'; }).join('')+'</tr>';
       continue;
     } else if (inTable) { html+=tableHtml+'</table>'; inTable=false; tableHtml=''; }
-
-    // List item
-    if (line.startsWith('- ')) {
-      if (!inList) { html+='<ul>'; inList=true; }
-      html+=`<li>${fmt(line.slice(2))}</li>`;
-      continue;
-    } else if (inList) { html+='</ul>'; inList=false; }
-
-    // Paragraph
-    if (line.trim()) html+=`<p>${fmt(line)}</p>`;
+    if (line.indexOf('- ') === 0) { if(!inList){html+='<ul>';inList=true;} html+='<li>'+fmt(line.slice(2))+'</li>'; continue; }
+    else if (inList) { html+='</ul>'; inList=false; }
+    if (line.trim()) html+='<p>'+fmt(line)+'</p>';
   }
   if (inList) html+='</ul>';
   if (inTable) html+=tableHtml+'</table>';
   return html;
 }
-
 function fmt(text) {
-  return text
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>')
-    .replace(/`(.+?)`/g, '<code>$1</code>');
+  return text.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/`(.+?)`/g,'<code>$1</code>');
 }
 </script>
 </body>
