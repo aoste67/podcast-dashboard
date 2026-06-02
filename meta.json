@@ -1,8 +1,13 @@
 {
-  "last_updated": "2026-06-02T08:30:34.909128",
+  "last_updated": "2026-06-02T19:07:25.873079",
   "db_file": "podcast_analyzer.db",
   "reports": [
+    "2026-06-03_Motley_Fool_Money_ep104.md",
     "2026-06-02_Motley_Fool_Money_ep96.md",
+    "2026-06-02_Halftime_Report_ep101.md",
+    "2026-06-02_Closing_Bell_ep103.md",
+    "2026-06-02_Closing_Bell_ep102.md",
+    "2026-06-02_Bloomberg_Tech_ep105.md",
     "2026-06-01_The_Real_Eisman_Playbook_ep99.md",
     "2026-06-01_Mad_Money_ep98.md",
     "2026-06-01_Halftime_Report_ep93.md",
